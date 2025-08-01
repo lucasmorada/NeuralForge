@@ -26,7 +26,7 @@
                 <a href="#features">Recursos</a>
                 <a href="#pricing">Preços</a>
                 <a href="#testimonials">Depoimentos</a>
-                <a href="#contact">Contato</a>
+                <a href="#cta">Contato</a>
             </div>
             <div class="nav-actions">
                 <button class="btn-secondary">Entrar</button>
@@ -281,6 +281,171 @@
         </div>
     </section>
 
+    <section class="dashboard-preview">
+        <div class="container">
+            <div class="section-header">
+                <h2>Visualização do Painel</h2>
+                <p>Confira como nosso painel de controle pode ajudar você a monitorar e gerenciar seus dados de forma eficiente.</p>
+            </div>
+            <div class="dashboard-image">
+                <img src="dashboard.png" alt="Dashboard Preview">
+            </div>
+        </div>
+    </section>
+
+    <!-- Interactive Demo Section -->
+    <section class="demo-section">
+        <div class="container">
+            <div class="section-header">
+                <h2>Experimente Nossa IA em Ação</h2>
+                <p>Veja como nossa inteligência artificial pode transformar seu texto, analisar dados e gerar insights em tempo real.</p>
+            </div>
+            
+            <div class="demo-container">
+                <div class="demo-tabs">
+                    <button class="demo-tab active" data-demo="text-analysis">
+                        <i class="fas fa-brain"></i>
+                        Análise de Texto
+                    </button>
+                    <button class="demo-tab" data-demo="data-insights">
+                        <i class="fas fa-chart-bar"></i>
+                        Insights de Dados
+                    </button>
+                    <button class="demo-tab" data-demo="content-generation">
+                        <i class="fas fa-magic"></i>
+                        Geração de Conteúdo
+                    </button>
+                </div>
+
+                <!-- Text Analysis Demo -->
+                <div class="demo-content active" id="text-analysis">
+                    <div class="demo-interface">
+                        <div class="demo-input-section">
+                            <h3>Cole seu texto aqui:</h3>
+                            <textarea 
+                                id="text-input" 
+                                placeholder="Digite ou cole qualquer texto para análise... Por exemplo: 'Nossa empresa teve um crescimento excepcional este trimestre, com vendas aumentando 45% e satisfação do cliente atingindo 98%.'"
+                                rows="6"
+                            ></textarea>
+                            <button class="btn-primary demo-analyze-btn" onclick="analyzeText()">
+                                <i class="fas fa-cog fa-spin" style="display: none;"></i>
+                                <span>Analisar com IA</span>
+                            </button>
+                        </div>
+                        <div class="demo-output-section">
+                            <h3>Resultado da Análise:</h3>
+                            <div class="analysis-results" id="analysis-results">
+                                <div class="analysis-placeholder">
+                                    <i class="fas fa-robot"></i>
+                                    <p>Os resultados da análise aparecerão aqui...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Data Insights Demo -->
+                <div class="demo-content" id="data-insights">
+                    <div class="demo-interface">
+                        <div class="demo-input-section">
+                            <h3>Dados de Exemplo:</h3>
+                            <div class="data-preview">
+                                <div class="data-table">
+                                    <div class="table-header">
+                                        <span>Mês</span>
+                                        <span>Vendas</span>
+                                        <span>Clientes</span>
+                                        <span>Satisfação</span>
+                                    </div>
+                                    <div class="table-row">
+                                        <span>Jan</span>
+                                        <span>R$ 125.000</span>
+                                        <span>450</span>
+                                        <span>4.2/5</span>
+                                    </div>
+                                    <div class="table-row">
+                                        <span>Fev</span>
+                                        <span>R$ 138.000</span>
+                                        <span>520</span>
+                                        <span>4.5/5</span>
+                                    </div>
+                                    <div class="table-row">
+                                        <span>Mar</span>
+                                        <span>R$ 156.000</span>
+                                        <span>610</span>
+                                        <span>4.7/5</span>
+                                    </div>
+                                </div>
+                            </div>
+                            <button class="btn-primary demo-analyze-btn" onclick="analyzeData()">
+                                <i class="fas fa-cog fa-spin" style="display: none;"></i>
+                                <span>Gerar Insights</span>
+                            </button>
+                        </div>
+                        <div class="demo-output-section">
+                            <h3>Insights Gerados:</h3>
+                            <div class="insights-results" id="insights-results">
+                                <div class="analysis-placeholder">
+                                    <i class="fas fa-chart-line"></i>
+                                    <p>Os insights aparecerão aqui...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Content Generation Demo -->
+                <div class="demo-content" id="content-generation">
+                    <div class="demo-interface">
+                        <div class="demo-input-section">
+                            <h3>Descreva o que você quer:</h3>
+                            <div class="prompt-options">
+                                <button class="prompt-btn" onclick="setPrompt('Escreva um email profissional para um cliente sobre o lançamento de um novo produto')">
+                                    📧 Email Profissional
+                                </button>
+                                <button class="prompt-btn" onclick="setPrompt('Crie uma descrição de produto para um aplicativo de fitness')">
+                                    📱 Descrição de Produto
+                                </button>
+                                <button class="prompt-btn" onclick="setPrompt('Escreva um post para LinkedIn sobre inovação em IA')">
+                                    💼 Post LinkedIn
+                                </button>
+                            </div>
+                            <textarea 
+                                id="content-prompt" 
+                                placeholder="Descreva o tipo de conteúdo que você gostaria de gerar..."
+                                rows="4"
+                            ></textarea>
+                            <button class="btn-primary demo-analyze-btn" onclick="generateContent()">
+                                <i class="fas fa-cog fa-spin" style="display: none;"></i>
+                                <span>Gerar Conteúdo</span>
+                            </button>
+                        </div>
+                        <div class="demo-output-section">
+                            <h3>Conteúdo Gerado:</h3>
+                            <div class="content-results" id="content-results">
+                                <div class="analysis-placeholder">
+                                    <i class="fas fa-pen-fancy"></i>
+                                    <p>O conteúdo gerado aparecerá aqui...</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="demo-footer">
+                <p class="demo-disclaimer">
+                    <i class="fas fa-info-circle"></i>
+                    Esta é uma demonstração interativa. Os resultados são simulados para fins de exemplo.
+                </p>
+                <button class="btn-outline btn-large" onclick="scrollToSection('#pricing')">
+                    <i class="fas fa-rocket"></i>
+                    Começar a Usar de Verdade
+                </button>
+            </div>
+        </div>
+    </section>
+
     <!-- Testimonials Grid -->
     <section id="testimonials" class="testimonials-grid">
         <div class="container">
@@ -387,7 +552,7 @@
     </section>
 
     <!-- CTA Section -->
-    <section class="cta">
+    <section id="cta" class="cta">
         <div class="cta-background">
             <div class="gradient-orb orb-3"></div>
         </div>
@@ -397,7 +562,7 @@
                 <p>Junte-se a centenas de empresas que já estão usando IA para crescer mais rápido e de forma mais inteligente.</p>
                 <button class="btn-primary btn-large">
                     <i class="fas fa-rocket"></i>
-                    Começar Gratuitamente
+                    Impulsione sua empresa
                 </button>
             </div>
         </div>
